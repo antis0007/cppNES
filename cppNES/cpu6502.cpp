@@ -18,7 +18,20 @@ void cpu6502::write(uint16_t a, uint8_t d) {
 // with :: as a prefix when referencing inside a class (useful if 2 vars of same name)
 
 // Sorry for all the comments, im new to cpp
+//CLOCK FUNC: Run every clock cycle, as ran from an outside class timer thing
+void cpu6502::clock() {
+	if (cycles == 0) {
+		opcode = read(pc);
+		pc++; //Increment program counter to read next byte, next time cycles == 0
+		//All cycle info is stored inside the actual opcodes, cycles is a var that can be accessed from any function
+		//Any additional cycles are calculated and set inside of opcode execution below:
 
+        run(); //Runs opcode
+
+
+	}
+    cycles--; //Decrement after running opcode until cycles complete
+}
 //DEFINING ADRESSING MODES
 uint8_t cpu6502::imp() {} //implicit, Doesnt even need to be called
 uint8_t cpu6502::acc() {
@@ -44,6 +57,7 @@ uint8_t cpu6502::izy() {} //indirect y
 void cpu6502::ADC() {
 	//ADC - Add with Carry
 	//A, Z, C, N = A + M + C
+    
 
 
 }
@@ -102,3 +116,41 @@ void cpu6502::TSX() {}
 void cpu6502::TXA() {}
 void cpu6502::TXS() {}
 void cpu6502::TYA() {}
+void cpu6502::run() {
+    switch (opcode) {
+
+        //OPCODE NAME
+
+           //imm
+    case 0x:
+
+        break;
+        //zp
+    case 0x:
+
+        break;
+        //zp,x
+    case 0x:
+
+        break;
+        //abs
+    case 0x:
+
+        break;
+        //abs,x
+    case 0x:
+
+        break;
+        //abs,y
+    case 0x:
+
+        break;
+        //ind,x
+    case 0x:
+
+        break;
+        //ind,y
+    case 0x:
+
+        break;
+    }

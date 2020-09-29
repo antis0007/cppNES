@@ -72,6 +72,8 @@ public:
 	// clocking every cycle
 	bool complete();
 
+	void run();// This function stores the switch case list for all opcodes , run(opcode)
+
 	//LSD = Least significant digit
 	//MSD = Most significant digit
 
@@ -81,12 +83,12 @@ public:
 	uint8_t fetch();
 	uint8_t  fetched = 0x00;   // Represents the working input value to the ALU
 	uint16_t temp = 0x0000; // A convenience variable used everywhere
-	uint16_t addr_abs = 0x0000; // All used memory addresses end up in here
+	uint16_t operating_addr = 0x0000; // Currently used memory addresses end up in here
 	uint16_t addr_rel = 0x00;   // Represents absolute address following a branch
 	uint8_t  opcode = 0x00;   // Is the instruction byte
 	uint8_t  cycles = 0;	   // Counts how many cycles the instruction has remaining
 	uint32_t clock_count = 0;	   // A global accumulation of the number of clocks
-
+	
 
 
 	
