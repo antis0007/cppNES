@@ -105,9 +105,7 @@ public:
 	uint8_t ind(); //indirect
 	uint8_t izx(); //indirect x
 	uint8_t izy(); //indirect y
-	//Fetches data used by instruction
-	//Used by all addressing modes except imp
-	uint8_t fetch();
+	
 	//DECLARING THE OPCODES:
 	void ADC();
 	void AND();
